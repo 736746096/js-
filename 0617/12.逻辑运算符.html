@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  逻辑运算符表达式，返回值一定是boolean类型
+        //  逻辑运算符，涉及到比较大小，什么类型能够直接比较大小？(数字)
+
+        // var res = "" == [];     // true
+        //  [] 先转换为 ""
+        //  res = 0 == 0
+        
+        // var res = "" === [];    //  false,类型不等
+
+        //  字符串与字符串进行比较时
+        //  1：不看长度
+        //  2：第一个字符与第一个字符的编码(ASCII，UNICODE)比较，若一样，以此类推往后比
+
+        var res = [] > {};
+        //  res = "" > "[object Object]"
+        //  res = 0 > NaN
+        //  false
+
+        //  
+    </script>
+</body>
+</html>

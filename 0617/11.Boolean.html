@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        其他类型转为boolean：除了false，其他全是true
+        ""  0   null    undefined   NaN 都为false
+     -->
+     <script>
+        console.log(Boolean(''));
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+        console.log(Boolean(NaN));
+        console.log(Boolean(0));
+        console.log(Boolean('123'));
+        console.log(Boolean(123));
+        console.log(Boolean([]));   //  true 注意 是数据类型转换，不是运算
+        console.log(Boolean({}));
+        //  为什么[] 和 {} Boolean 为true ?
+
+        //  显示转换，只有数据类型转换
+        //  隐式转换发生在运算中
+     </script>
+</body>
+</html>
