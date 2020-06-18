@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        比较：大小  相等    具体数字
+        判断大小且不同类型数据    才转换
+        相同类型        不转换
+        ===   !==  操作数不转换
+
+     -->
+     <script>
+        console.log(undefined > 1);     //  false
+        console.log(undefined==undefined);  //  true
+        console.log(NaN === NaN);       //  false
+        console.log(1 > "");            //  true
+        console.log([] == "");          //  true
+        console.log([] === "");         //  false
+        console.log(true > "");         //  true
+        console.log(null == null );     //  true
+        console.log("" == null);        //  false
+
+        //  null == undefined/null
+        
+     </script>
+</body>
+</html>

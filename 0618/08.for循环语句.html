@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            for 循环
+            var i = 0;
+            var i = 0;  声明变量 i，并初始值为 0
+            i < 6 ,是否运行{}中代码的判断条件
+            i++     给 var i 重新赋值
+
+            特点：
+            1：var i = 0 值会执行依次
+            2：循环体中代码执行多次
+
+            代码执行顺序
+            1：页面初始化 执行 表达式一 var i = 0;  然后执行 表达式二 i < 6
+                - 满足条件 执行 循环体 {}
+                循环体执行完毕后；执行表达式三 i++  对 i 进行了从新赋值 i=1 然后执行表达式二 i<6
+                 - 满足执行 循环体{}
+
+            直到不满足 表达式二  跳出本次循环
+        */
+        var arr = [1, 2, 3, 4, 5, 7];
+        //  获取arr中每一个值
+        for(var i = 0;i < arr.length; i++){
+            console.log(arr[i])
+        }
+
+        
+
+    </script>
+</body>
+</html>

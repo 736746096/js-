@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            数组特点：
+            1：数组有下标，也叫索引，根据索引获取数组元素
+            2：数组有长度：长度表示数组元素的个数
+            3：数组元素为js，任意数据类型，数组长度可以为多个
+        */
+        var fun = function (){};
+        var arr = [1,'2',true,null,undefined,[],{},fun];
+        console.log(arr);
+
+        //  如何通过数组索引值获取数组元素
+        var res = arr[1];
+
+        //  如何获取第N个元素
+        //  arr[N-1]
+
+        //  如何获取数组长度
+        var len = arr.length;       //  写法一
+        var len = arr["length"];    //  写法二
+
+        //  如何获取最后一个数组元素
+        var last = arr[arr["length"]-1]
+
+        //  如何获取倒数第二个数组元素
+        var last = arr[arr["length"]-2]
+
+        //  如何获取倒数第n个数
+        //  arr[arr.length - n]
+    </script>
+</body>
+</html>

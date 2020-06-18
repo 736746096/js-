@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  ++  给自己+1
+        var x = 1;
+        //  1：先给y赋值 x = 1 再让 x 自增1
+        var y = x++; //  先赋值，再运算
+        // console.log(x, y);
+
+        var a = 1;
+        //  1：先给a自增1 a=2，     2：再给b赋值，a的玉奴三结果 2
+        var b = ++a; //  先运算，后赋值
+        // console.log("b", b, "a", a);
+
+        var c = 1;
+        var d = 2;
+        var z = ++c + c++;
+
+        var l = 1;
+        var q = 2;
+        var w = '';
+        var res = (++l + l++) - 3 * (q++ - ++q) - q++
+        //  (2 + 2) - 3 * (2 - 4) - 4
+        //  4 - 3* (-2) - 4
+        //  4 + 6 - 4
+        //  6
+        console.log(res)
+    </script>
+</body>
+
+</html>

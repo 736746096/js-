@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 如何区分基本类型的数据
+        // typeof 可以区分 基本类型数据 number string boolean undefined object function
+        // 注意：不能区分 null 数组 与 对象；都返回 object
+        // 可以用typeof 判断一个数据式什么类型
+        
+        var fun = function(){}
+        var num = 123
+        console.log(typeof num === 'number')
+        console.log(typeof 'dd')
+        console.log(typeof true)
+        console.log(typeof undefined)
+        console.log(typeof null)
+        console.log(typeof ['1'])
+        console.log(typeof {name:"yq"})
+        console.log(typeof fun)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  复杂的表达式    包含多种类型运算符
+        var res = 2 > 1 && null == null && 2 - 1; //  1
+        var res = "" == [] && "a" < "y" && [] > {} //  false
+
+        var res2 = [] === "" && (1 + 2) * 1 && "a" > "b"
+        //  res2 = false && 3*1 && false
+        //  res2 = false && true && false
+        //  res2 = false && false
+        //  res2 = false
+
+        /*
+        &&  运算符的 运算规律
+            从左往右依次运算，第一个时true，进行下一个；遇到第一个false，则返回false
+            如果运算到最后一个表达式都是true，则返回true 或者返回最后一个表达式的运算结果，或者直接返回数据
+
+            ----->有假返回这个值，同真返回最后一个值
+        */
+        var a = 20;
+        var res = (a % 4 == 0 && a % 100 != 0) && a % 400 == 0;
+        //  res = (0 == 0 && 20 != 0) && 20 == 0
+        //  res = (true && true) && false
+        //  res = true && false
+        //  res = false
+
+
+        /*
+        ||  运算符的运算规律
+
+            ----->有真返回这个值，同假返回最后一个值
+        */
+        var a = 20
+        var res = (a % 4 == 0 || a % 100 != 0) || a % 400 == 0;
+        // res =  (20 % 4 == 0 || 20 % 100 != 0) || 20 % 400 == 0;
+        // res =  (true == 0 || 20 % 100 != 0) || 20 % 400 == 0;
+        // res =  (true || 20% 100 != 0) || 20 % 400 == 0;
+        // res =  (true) || 20 % 400 == 0;
+        // res =  true || 20 % 400 == 0;
+        // res = true
+
+        var res = {} || ""; //  Object
+        // console.log(res);
+
+        var res = undefined || null || false || "" || 0
+        //  res = null || false || "" || 0
+        //  res = false || "" || 0
+        //  res = "" || 0
+        //  res = 0
+
+        //  !   单目运算
+        //  结果为 true false
+        //  数据类型的隐式转换，也应该转为boolean
+        //  第一步：看是不是 !
+        //  第二部：将操作数转为布尔类型
+        //  第三步：取反
+        var res = !""; //  true
+        var res = !"" + 1; //  2
+        var res = 1 > 2 && !""; //  false
+
+        var res = 1 + 2 + !0;
+        //  3 + true
+        //  3 + 1
+        //  4
+        var res1 = !1;
+        //  !true
+        //  false
+        var res2 = !"ddd";
+        //  !true
+        //  false
+        var res3 = !null;
+        //  !false
+        //  true
+        var res4 = !undefined;
+        //  !false
+        //  true
+        var res5 = !"";
+        //  !false
+        //  true
+        var res6 = !NaN;
+        //  !false
+        //  true
+        var res7 = 2 - !"ddd";
+        //  2 - !true
+        //  2 - false
+        //  2 - 0
+        //  2
+        var res8 = {} > [] && 2 > 1 || "dd" > "aa" || !"";
+        //  "[object Object]" > "" && true || true || !false
+        //  true && true || true || true
+        //  true
+
+        var res = ("aa" > "") && !(1 < 2 || 1 - 1 && [] > {}) && ('' == []);
+        //  true && !( true || 0 && "" > "[object Object]") && true
+        //  true && !( true || false && false) && true
+        //  true && !true && true
+        //  true && false && true
+        //  false
+        console.log(res);
+    </script>
+</body>
+
+</html>
