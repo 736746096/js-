@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = "";
+        //  完成需求
+        //  如何保证变量一定是 number
+            typeof data == "number"
+        //  如何保证变量一定是 String
+            typeof data == "string"
+        //  如何保证变量一定是 boolean
+            typeof data == "boolean"
+        //  如何保证变量一定是 undefined
+            typeof data == "undefined"
+        //  如何保证变量一定是 null
+            data === null
+        //  如何保证变量一定是 Array
+            Array.isArray(data);
+            data.construtor == Array;
+        //  如何保证变量一定是 Object
+            typeof data == "object" && Array.isArray(data) != true
+        //  如何保证变量一定是 function
+            typeof data == "function"
+
+        //  如何让变量可能是 Number 或者 字符串
+            typeof data == "number" || typeof data == "string"
+
+        //  练习题：
+        var a;
+        var b;
+        var c;
+        
+        //  需求 a 不能是 number 并且 b 必须是数组 或者 c 是字符串
+        typeof a != "number" && Array.isArray(b) || typeof c == "string"
+    </script>
+</body>
+</html>

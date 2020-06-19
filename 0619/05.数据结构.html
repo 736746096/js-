@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  数组中放相同类型的数据，
+        //  对象中存放不同的数据类型结构
+        //  每一个数组都是有意义的，即要让数据结构符合html 结构，又要让意义相符合
+
+        //  要点：根据页面结构，分析你需要的数据结构
+
+       
+        var swipers = [
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg'
+        ]
+
+        // for(var i = 0;i < swipers.length; i++){
+        //     document.write(
+        //         `<img src = "${swipers[i]}">`
+        //     )
+        // }
+
+        var nav = [{
+                title: "会员中心",
+                icon: "iconfont1"
+            },
+            {
+                title: "种草专辑",
+                icon: "iconfont2"
+            },
+            {
+                title: "精选匹品牌",
+                icon: "iconfont3"
+            },
+            {
+                title: "领券中心",
+                icon: "iconfont4"
+            },
+            {
+                title: "签到",
+                icon: "iconfont5"
+            }
+        ]
+
+        var timeShop = {
+            title: '限时抢购',
+            time: "00:00",
+            dec: '每天10点',
+            productList: [{
+                    imgsrc: '',
+                    price: '99元',
+                    delPrice: '￥99.0'
+                },
+                {
+                    imgsrc: '',
+                    price: '99元',
+                    delPrice: '￥99.0'
+                },
+                {
+                    imgsrc: '',
+                    price: '99元',
+                    delPrice: '￥99.0'
+                },
+                {
+                    imgsrc: '',
+                    price: '99元',
+                    delPrice: '￥99.0'
+                }
+            ]
+        }
+
+        var bar = [{
+                title: '精选',
+                tip: '为你推荐'
+            },
+            {
+                title: '进口',
+                tip: '优质进口'
+            },
+            {
+                title: '优惠',
+                tip: '特惠好物'
+            },
+            {
+                title: '新品',
+                tip: '精选新品'
+            }
+        ]
+
+        var content = [{
+                imgsrc: 'aaa',
+                title: 'Daisy女士2020春夏新款白色纯棉印花圆领短袖衬衣',
+                price: '￥99.0',
+                wassale: '已售899件'
+            },
+            {
+                imgsrc: 'aaa',
+                title: 'Daisy女士2020春夏新款白色纯棉印花圆领短袖衬衣',
+                price: '￥99.0',
+                wassale: '已售899件'
+            },
+            {
+                imgsrc: 'aaa',
+                title: 'Daisy女士2020春夏新款白色纯棉印花圆领短袖衬衣',
+                price: '￥99.0',
+                wassale: '已售899件'
+            },
+            {
+                imgsrc: 'aaa',
+                title: 'Daisy女士2020春夏新款白色纯棉印花圆领短袖衬衣',
+                price: '￥99.0',
+                wassale: '已售899件'
+            },
+            {
+                imgsrc: 'aaa',
+                title: 'Daisy女士2020春夏新款白色纯棉印花圆领短袖衬衣',
+                price: '￥99.0',
+                wassale: '已售899件'
+            },
+            {
+                imgsrc: 'aaa',
+                title: 'Daisy女士2020春夏新款白色纯棉印花圆领短袖衬衣',
+                price: '￥99.0',
+                wassale: '已售899件'
+            },
+            {
+                imgsrc: 'aaa',
+                title: 'Daisy女士2020春夏新款白色纯棉印花圆领短袖衬衣',
+                price: '￥99.0',
+                wassale: '已售899件'
+            },
+            {
+                imgsrc: 'aaa',
+                title: 'Daisy女士2020春夏新款白色纯棉印花圆领短袖衬衣',
+                price: '￥99.0',
+                wassale: '已售899件'
+            }
+        ]
+
+        var header = {
+            swipers: [
+                'http://www.baidu.com/',
+                'http://www.baidu.com/',
+                'http://www.baidu.com/',
+                'http://www.baidu.com/'
+            ],
+            nav: [{
+                    title: '会员中心',
+                    icon: 'iconfont'
+                },
+                {
+                    title: '种草特辑',
+                    icon: 'iconfont'
+                },
+                {
+                    title: '精选品牌',
+                    icon: 'iconfont'
+                },
+                {
+                    title: '领券中心',
+                    icon: 'iconfont'
+                },
+                {
+                    title: '签到',
+                    icon: 'iconfont'
+                }
+            ]
+        }
+
+        var main = [
+            {
+            title: '限时抢购',
+            time: '00:00:00',
+            dec: '每天10点 限量秒杀',
+            productList:[
+                {
+                    imgsrc:'aaa',
+                    price:'￥99.0',
+                    delprice:'￥99.0'
+                },
+                {
+                    imgsrc:'aaa',
+                    price:'￥99.0',
+                    delprice:'￥99.0'
+                },
+                {
+                    imgsrc:'aaa',
+                    price:'￥99.0',
+                    delprice:'￥99.0'
+                },
+                {
+                    imgsrc:'aaa',
+                    price:'￥99.0',
+                    delprice:'￥99.0'
+                }
+            ]
+            },
+            {
+                title:'每日特价',
+                dec:'9块9疯抢',
+                productList:[
+                    'img','img'
+                ]
+            },
+            {
+                title:'新人特惠',
+                dec:'特惠好物1元起',
+                productList:[
+                    'img','img'
+                ]
+            },
+            {
+                title:'热门榜单',
+                cont:[
+                    {
+                        title:'销量榜',
+                        imgsrc:'bbb'
+                    },
+                    {
+                        title:'口碑榜',
+                        imgsrc:'bbb'
+                    },
+                    {
+                        title:'热搜榜',
+                        imgsrc:'bbb'
+                    }
+                ]
+            }
+        ]
+
+    </script>
+</body>
+
+</html>
