@@ -9,19 +9,19 @@
 
 <body>
     <script>
-        var str = 'sdawda6s5dwq8465s4zd';
+        var str = 'qwerasdzxc123';
 
         //  slice() 表示从第几个索引值开始截取到第几个索引字符，不包含endIndex 包含starIndex
         //  片段字符长度 startIndex - endIndex
-        var res = str.slice(3, 7);
+        var res = str.slice(3, -4);
         console.log(res);
 
-        //  substr(startIndex,end)  
-        var res1 = str.substr(3, 7);
+        //  substr(startIndex,length)  
+        var res1 = str.substr(3, 1);
         console.log(res1);
 
         //  substring(startIndex,length)
-        var res2 = str.substring(3, 7);
+        var res2 = str.substring(3, -4);
         console.log(res2);
 
         //  charAt(index)   返回传入索引值，对应的字符
