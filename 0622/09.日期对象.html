@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  日期对象 表示与时间有关内容：年 月 日 时 分 秒 时间戳
+
+        //  如何获取当前时间呢？
+
+        //  实例化一个日期对象，返回是当前时间：以及api
+        var date = new Date();
+        console.log((date));
+
+        //  getFullYear()   返回当前年份
+        var year = date.getFullYear();
+        console.log(year);
+
+        //  getMonth()  返回当前月份  
+        var month = date.getMonth() + 1; //  0 - 11
+        console.log(month);
+
+        //  getDate()    返回几号
+        var day = date.getDate();
+        console.log(day);
+
+        //  getDay()    返回星期几
+        var nowday = date.getDay();
+        console.log(nowday);
+
+        //  getHours()  返回小时
+        var hour = date.getHours();
+        console.log(hour);
+        
+        //  getMinutes()    返回分钟
+        var minute = date.getMinutes();
+        console.log(minute);
+        
+        //  getSecond()     返回秒
+        var second = date.getSeconds();
+        console.log(second);
+        
+
+        //  获取时间戳，时间戳具有唯一性，从 1970 年到现在的毫秒数
+        var time = date.getTime();
+        console.log(time);
+        //  0-999   1s = 1000s
+        console.log(date.getMilliseconds());
+        
+
+
+
+
+        //  进阶 ----> 日期格式化插件封装
+        console.log(year+'-'+month+'-'+day+'-'+nowday+" "+hour+':'+minute+':'+second);
+        
+
+    </script>
+</body>
+
+</html>
