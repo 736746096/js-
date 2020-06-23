@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  反常规思路
+
+        var arr = [1,2,3,4];
+        var arr1 = ['2','d'];
+        var res = ['d','d'];
+
+        //  concat()    合并数组，并返回合并后的结构
+        //  注意，arr 数组长度变化了，是合并的三个长度之和
+        arr = arr.concat(arr1)
+        arr =arr.concat(res);
+
+
+        //  reverse()   颠倒数组
+        var reverseArr = arr1.reverse();
+        console.log(reverseArr);
+        
+        //  slice() 截取数组片段，starInedx，endIndex(不包含)
+        var arr2 = [1,2,'aaa',3,4,5,6,6,66];
+        var res2 = arr2.slice(3,6);
+        console.log(res2);
+        
+
+        console.log(arr);
+        
+    </script>
+</body>
+</html>

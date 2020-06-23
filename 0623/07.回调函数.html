@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  回调函数：将函数作为参数的方式传递给另一个函数
+        function foo(callBack){
+            console.log('foo');
+            console.log(callBack);
+            // bar();       //  直接在一个函数中调用另一个函数
+            callBack();     //  回调函数
+        }
+        var bar = function(){
+            console.log('我是回调函数');
+        }
+        //            
+        foo(bar);
+
+        foo(function(){
+            console.log('直接传入回调函数');
+        })
+        
+
+
+
+    </script>
+</body>
+</html>
