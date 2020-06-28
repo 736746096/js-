@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  立即执行函数：直接执行，没有任何解析过程
+        // (function(){
+        //     console.log('立即执行函数');
+
+        // })()
+
+        // for (var i = 0; i < 3; i++) {
+        //     (function () {
+        //         console.log(i);
+        //     })()
+        // }
+
+        // for (var i = 0; i < 3; i++) {
+        //     (function (i) {
+        //         setTimeout(function () {
+        //             console.log(i);
+        //         }, 16.2);
+        //     })(i)
+        // }
+
+        // for (var i = 0; i < 3; i++) {
+        //     function foo() {
+        //         var timer = setInterval(function (){
+        //             console.log('aaa');
+        //             console.log(timer);
+        //             clearInterval(timer);
+        //         }, 500);
+        //     }
+        //     foo();
+        // }
+
+        // var timer = setTimeout(function(){
+        //     console.log('111');
+        //     console.log(timer);    //  4
+        // },500)
+    </script>
+</body>
+
+</html>

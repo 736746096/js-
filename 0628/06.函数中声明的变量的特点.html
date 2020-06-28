@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  全局变量的初始化，在刷新浏览器的时候
+        //  全局变量关闭页面时候，销毁全局变量
+        var test = 'dddddd';    //  全局下声明的变量就存在内存中了，是不会自动消失的
+        function foo(){
+            //  函数方法体中，声明的变量，执行的时候都在内存中创建，执行完毕后 销毁
+            //  每次重新执行函数，都是初始化变化
+            var a = 1;
+            var b = 'dd';
+            var c = 'ddd';
+            a++;
+            console.log(a);
+        }
+        foo();
+        foo();
+        foo();
+        //  变量销毁的原因，避免内存泄漏
+    </script>
+</body>
+</html>

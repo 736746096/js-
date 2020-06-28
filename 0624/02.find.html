@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 23, 4, 56, 3, 6]
+
+        //  find()  查找数组中是否有某个元素
+        //  若有则返回第一个被查到的元素
+        //  若没有则返回 undefined
+
+        //  如何使用？
+        //  1：不但判断是否有，如果有还需要使用这个元素
+        var res = arr.find(function (item, index) {
+            return item > 10;
+        })
+        console.log(res);
+
+        if (res !== undefined) {
+            //  使用了 find 查到的元素
+            var sum = res + 1;
+            console.log(sum);
+        }
+
+        //  如何仅仅判断一个数组中是否含有某个元素？
+        //  findIndex() 判断数组中是否有某个元素，如果没有返回 -1 ，若有，返回第一个元素对应的 索引值
+        var arr1 = [1,2,3]
+        var res1 = arr1.findIndex(function(item,index){
+            return item === 2
+        })
+        var res1 = arr1.indexOf(2);
+        console.log(res1);
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  计时器
+        //  每隔多少时间执行一次 回调函数 无限循环
+
+        //  出口：
+        // var x = 0;
+        // //  timer 表示 每一个计时器的身份
+        // var timer = setInterval(function () {
+        //     x++;
+        //     console.log(x);
+        //     if (x > 10) {
+        //         //  清空计时器，若不清空计时器，会导致页面性能特别
+        //         clearInterval(timer)
+        //     }
+        // }, 500)
+        // console.log(timer);
+
+
+        //  注意：多次执行同一个setInterval 到底清空哪一个？
+
+        // for (var i = 0; i < 3; i++) {
+        //     var timer = setInterval(function () {
+        //         console.log('aaaa');
+        //         //  这里清空的是最后一次执行的计时器
+        //         clearInterval(timer);
+        //     }, 500);
+        //     //  timer 形成多个，需要清空每一个
+        //     console.log(timer, '-----');
+        //     // if (timer == 3) {
+        //     //     clearInterval(timer);
+        //     // }
+        // }
+
+        var timer;
+        for (var i = 0; i < 3; i++) {
+            timer = setInterval(function () {
+                // console.log('aaaa');
+            }, 500);
+            console.log(timer, '-----');
+            //  清空了多个 timer    坑：setInterval 失效了
+            // clearInterval(timer);
+            //  如何解决失效问题？ 慢点
+
+            //  坑：清空同一个 timer 三次
+            setTimeout(function(){
+                console.log(timer);
+                clearInterval(timer);
+            },500)
+            //  目的：需要知道 分别保存timer的值？
+            //  解决方法 外层包裹一个立即执行函数
+        }
+    </script>
+</body>
+
+</html>
