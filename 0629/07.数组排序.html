@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  数组排序
+        var arr = [3, 4, 0, 23, 424, 6, 5, 4, 8];
+
+        //  只要是对数组操作：判断是修改原数组，还是返回新数组
+
+        //  
+        for (var i = 0; i < arr.length; i++) {
+            // arr[i]   前面的数据
+            for (var j = 0; j < arr.length; j++) {
+                if (arr[j] > arr[i]) {
+                    var tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3, 12, 3, 1];
+
+        //  res 中数组内容和 arr 一模一样
+        //  ...array/object，展开运算符用于对象和数组
+        var res = [...arr];
+
+        var obj = {
+            name: 'aa',
+            age: 22,
+            dec: 'bb'
+        }
+        var clone = {};
+        // clone = obj;
+        // console.log(clone);
+
+        for (var i in obj) {
+            clone[i] = obj[i];
+        }
+        console.log(clone);
+
+        var clone1 = {
+            ...obj
+        }
+        console.log(clone1);
+    </script>
+</body>
+
+</html>

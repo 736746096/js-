@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  拷贝 == 复制
+
+        //  深拷贝
+        //  拷贝基本类型的数据
+        var str = 'aaa';
+        var copyStr = str;
+        copyStr = copyStr + '你好';
+        console.log(copyStr, str);
+
+
+
+        //  浅拷贝
+        //  一个改变会影响另一个跟着改变
+        //  对象与数组 直接复制变量，实现都是浅拷贝
+        var arr = [1, 2, 31, 2];
+        var copyArr = arr;
+        copyArr.push('ooo');
+        arr.push('old');
+        console.log(copyArr, arr);
+
+        //  如何实现对象与数组的深拷贝？
+        var arr1 = ['sss', 1, 2, 2, 3];
+        var obj = {
+            name: 'aaa',
+            age: 22
+        }
+
+        // var copyArr1 = [...arr1];
+        // copyArr1.push('bbb');
+        // console.log(copyArr1,arr1);
+
+        var copyArr1 = Array.from(arr1);
+        copyArr1.push('a')
+        console.log(copyArr1, arr1);
+
+
+        //内存： 栈     堆
+        //  基本类型中数据全在 栈 中
+        //  引用类型数据存在 堆 中，在栈中的【在堆中地址】
+        //  浅拷贝  拷贝的是地址
+        //  深拷贝  在堆中重新开拓一个空间，形成新的地址
+    </script>
+</body>
+
+</html>

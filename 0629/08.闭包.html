@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  闭包
+        //  函数嵌套，并且 return 返回的是一个函数
+
+        //  优点一  外部函数可以访问内部函数的变量
+        //  优点二  变量不会被污染
+        //  缺点：变量不能释放，导致内存泄漏
+
+        //  foo 执行一次，形成一个闭包，闭包与闭包之间互不干扰
+        //  因为 foo 每次执行都会初始化 AO 对象，地址不同，
+        function foo() {
+            var num = 0;
+            return function a() {
+                num++;
+                console.log('这是闭包');
+                console.log(num);
+            }
+        }
+        var res = foo();
+        //  怎么实现外部访问内部的，存 a 函数指针
+        //  实质是，子域 a 访问父域 foo，只是在外部调用
+        res();
+        res();
+
+        var bar = function () {
+            console.log('aa');
+        }
+    </script>
+</body>
+
+</html>

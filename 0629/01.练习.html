@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 100;
+
+        function testResult() {
+            var b = 2 * a;
+            var a = 200;
+            var c = a / 2;
+            alert(b);
+            alert(c);
+        }
+        testResult();
+
+        /*
+            GO{
+                a:undefined --> 100
+                testResult:function(){...}
+            }
+
+            AO{
+                b: undefined --> 2*a --> 2*undefined --> NaN
+                a: undefined --> 200 
+                c: undefined --> a/2 --> 200/2 -->100
+            }
+            
+            //  也可以整理为
+            function testResult(){
+                var b;
+                var a;
+                var c;
+                b = 2 * a;
+                a = 200;
+                c = a / 2;
+                alert(b);
+                alert(c);
+            }
+        */
+    </script>
+</body>
+
+</html>
