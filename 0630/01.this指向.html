@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  this 是状态机，是动态变化的对象，随着作用域改变而改变
+        //  this 有作用域，就会有this
+        //  一个没有作用域的语法糖 是没有this 的
+        //  语法糖：由 sj 代码片段形成的具有功能型的api
+
+        //  如何判断 this 指向？ 在上面环境下指向谁？
+        //  this 只能指向的是对象
+        console.log(this);  //  全局下 window
+        
+        var obj = {
+            a:function(){}
+        }
+        function a(){}
+        this.a();   //  function a(){}
+
+        function foo(){
+            console.log(this);  //  window
+            console.log('window下的函数');
+        }
+        this.foo();
+        
+        
+        function bar(name){
+            console.log(this);  //  指向 new 实例的对象
+            this.name = name;
+        }
+        var aa = new bar('aa');
+
+        var obj = {
+            foo:function(){
+                console.log(this,'------');     
+                console.log(this.name);
+            },
+            name:'bbb'
+        }
+        obj.foo();
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var name = "The Window";
+        var object = {
+            name: "My Object",
+            getNameFunc: function () {
+                return function () {
+                    return this.name;
+                }
+            }
+        };
+        var obj = {
+            name: 'wgm',
+            sayName: function (callback) {
+                callback();
+            }
+        }
+
+        console.log(
+            obj.sayName(object.getNameFunc())
+        );
+
+        var num = 1;
+        var myObject = {
+            num: 2,
+            add: function () {
+                this.num = 3;
+                (function () {
+                    console.log(this.num);
+                    this.num = 4;
+                })();
+                console.log(this.num);
+            },
+            sub: function () {
+                console.log(this.num)
+            }
+        }
+        myObject.add(); //  1 3
+        console.log(myObject.num); //  3
+        console.log(num); //  4
+        var sub = myObject.sub;
+        window.sub(); //  4
+
+
+        var name = 'window'
+        var person1 = {
+            name: 'person1',
+            show1: function () {
+                console.log(this.name)
+            },
+            show3: function () {
+                return function () {
+                    console.log(this.name)
+                }
+            },
+            show4: function () {
+                return () => console.log(this.name)
+            }
+        }
+        var person2 = {
+            name: 'person2'
+        }
+
+        person1.show1() //  person1
+        person1.show1.call(person2) //  person2
+
+        person1.show3()() //  window
+        person1.show3().call(person2) //  person2
+        person1.show3.call(person2)() //  window
+
+        // person1.show4()()               //  person1
+        // person1.show4().call(person2)   //  person1
+        // person1.show4.call(person2)()   //  person2
+
+        //  第三题
+        var name = 'aaaa';
+        //  立即执行函数是 window下调用的
+        (function () {
+            var name = 'yyyyy'
+            console.log(this.name);
+        })()
+
+        //  第四题
+        var name = 'aaaa';
+        function foo() {
+            (function () {
+                var name = 'yyyyy'
+                console.log(this.name);
+            })()
+        }
+        foo();
+
+        //  第五题
+        function foo() {
+            console.log(this);
+            return function () {
+                console.log(this);
+            }
+        }
+        var obj = {
+            say: foo
+        }
+        obj.say()        //  obj
+        obj.say()();     //  window
+        //  存的 是foo 函数执行的返回值
+        var res = obj.say()
+        res();       //  window
+
+        //  规律 嵌套函数：父函数中 this 不等于子函数 this，分别按照套路判断
+
+        //  第六题
+        (function(){
+            console.log(this);
+            return function(){
+                console.log(this);
+            }
+        })()()
+
+        //  第七题
+        var obj = {};
+        (function(){
+            console.log(this);
+            return function(){
+                console.log(this);
+            }
+        })().call(obj);
+
+        //  第八题
+        (function(){
+            console.log(this);
+            return function(){
+                console.log(this);
+            }
+        })().call(this)
+
+        //  第九题
+        var obj = {};
+        (function(){
+            console.log(this);
+            return function(){
+                console.log(this);
+            }
+        }).call(obj)()
+
+    </script>
+</body>
+
+</html>

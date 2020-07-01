@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = 'bbb';
+        function foo(){
+            console.log(arguments);
+            
+            var name = 'aaa';
+            console.log(this.name);
+        }
+
+        var www = {
+            name:'www',
+            foo:foo
+        }
+        var fff = {
+            name:'fff',
+            foo:foo,
+            cname:this.name
+        }
+        var yyy = {
+            name:'yyy',
+            foo:foo
+        }
+        // foo()
+        // www.foo();
+        // fff.foo();
+
+        //  call() 改变 function 函数中 this 的指向，触发函数
+        //  参数一：指定 this 指向的对象
+        //  参数二~参数N：给调用函数 foo 传入实参
+        // foo.call(fff,'zzzzzzzzzzzzz',22);
+        // www.foo.call(window); 
+        // fff.foo.call(this); //  foo 中 this 指向 fff 改变为 window
+
+        //  apply() ：改变 function 函数中 this 指向，触发函数
+        //  参数一：指定 this 指向的对象
+        //  参数二：数组，作用：调用该函数传入的实参
+        // yyy.foo.apply(window,[1,2,3,4]);
+
+        //  bind()() ：改变 function 函数中 this 指向，需要加上执行符()  才能触发
+        //  参数：指定 this 指向的对象
+        yyy.foo.bind(window)('1',2,'3',4);
+
+        //  思考：call apply bind 的区别？
+    </script>
+</body>
+</html>
