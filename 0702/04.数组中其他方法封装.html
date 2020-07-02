@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  排序
+        function sort(arr) {
+            if (arguments.length === 0) {
+                throw new Error('parmas can is not undefined')
+            }
+            if (arguments.length > 1) {
+                throw new Error('parmas.length can is not gt 1')
+            }
+            if (!Array.isArray(arr)) {
+                throw new Error('parmas must is Array')
+            }
+            for (var i = 0; i < arr.length; i++) {
+                //  arr[i]  小 在前
+                for (var j = i + 1; j < arr.length; j++) {
+                    //  arr[j]  大 在后
+                    if (arr[i] > arr[j]) {
+                        //  数据的换值
+                        var tmp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = tmp;
+                    }
+                }
+            }
+            return arr;
+        }
+        var res = sort([1, 2, 31, 42, 5, 2])
+        console.log(res);
+    </script>
+</body>
+
+</html>

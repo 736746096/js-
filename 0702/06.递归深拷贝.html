@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'aa',
+            list: [{
+                name: 'yy'
+            }, {
+                name: 'gg',
+                say: 'abdcefg01'
+            }]
+        }
+
+        //  deepCopy    实现的是数组或者对象的深层拷贝
+        //  递归深拷贝
+        //  1：需要考虑：每次拷贝的数：是数组或者是对象：不确定
+        function deepCopy(param) {
+            //  如果是数组
+            if (Array.isArray(param)) {
+                var res = [];
+                for (var i = 0; i < param.length; i++) {
+                    if (param[i] instanceof Object) {
+                        res.push(deepCopy(param[i]));
+                    } else {
+                        res.push(param[i]);
+                    }
+                }
+                return res;
+            }
+            //  如果是对象  进行 对象的拷贝
+            if (param.constructor == Object) {
+                var res = {}; //  1  声明空对象
+                for (var k in param) { //  遍历被拷贝对象
+                    //  param[k] 表示数组对象
+                    //  如果你是数组或者对象，需要再次拷贝
+                    if (param[k] instanceof Object) {
+                        res[k] = deepCopy(param[k]);
+                    } else {
+                        res[k] = param[k];
+                    }
+                }
+                return res;
+            }
+        }
+
+        var res = deepCopy(obj);
+        obj.list.push('aa')
+        obj.list[0].age = 22;
+        console.log(res);
+        console.log(obj);
+
+        //  未来的面试题，考察 js的基础逻辑问题
+        //  赋值 逻辑 递归 if for 方法封装 综合掌握程度
+        //  如何写与数据类型有关的判断表达式
+
+    </script>
+</body>
+
+</html>

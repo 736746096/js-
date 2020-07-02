@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: 'aa',
+            list: [{
+                name: 'yy'
+            }, {
+                name: 'gg',
+                say: 'abdcefg01'
+            }]
+        };
+        var o = {}
+        //  封装函数
+        function deepCopy(newObj, oldObj) {
+            //  对拷贝的数据进行遍历
+            for (var k in oldObj) {
+                //  判断数据的属性值属于哪种数据类型
+                //  获取拷贝数据的属性值
+                var item = oldObj[k];
+                if (item instanceof Array) {
+                    //  判断属性值是否为数组
+                    newObj[k] = [];
+                    deepCopy(newObj[k], item);
+                } else if (item instanceof Object) {
+                    //  判断属性值是否为对象
+                    newObj[k] = {};
+                    deepCopy(newObj[k], item);
+                } else {
+                    //  基本数据类型
+                    newObj[k] = item;
+                }
+            }
+            return newObj;
+        }
+        var res = deepCopy(o, obj);
+        console.log(res);
+    </script>
+</body>
+
+</html>
