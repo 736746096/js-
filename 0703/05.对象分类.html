@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  对象分类
+
+        //  函数对象
+        function foo() {};
+        var bar = new Function();
+        var foo1 = function () {};
+        console.log(foo.prototype); //  {constructor: ƒ}
+        console.log(bar.prototype); //  {constructor: ƒ}
+        console.log(foo1.prototype); //  {constructor: ƒ}
+
+
+        //  普通对象:   构造对象，原型对象...
+        //  -----> 日期对象  数组对象  字符串对象...
+        var f = new foo();
+        var obj = new Object();
+        console.log(f.prototype); //  undefined
+        console.log(obj.prototype); //  undefined
+
+        //  问题：构造函数的 foo的原型对象 和 new 实例对象 f 的原型对象 的关系是什么？
+        //  f 是 foo 创建的
+        //  foo 的原型对象 和 f 的原型对象是同一个          (原型角度)
+        //  foo.prototype 和 f.__proto__ ，两者内存指针相同 (内存角度)
+        console.log(foo.prototype === f.__proto__); //  true
+
+
+        //  区分方式
+        //  函数对象有 prototype    即 函数对象的原型对象
+        //  普通对象没有 prototype，只有 __proto__ 属性     即 普通对象的原型对象
+
+
+        //  函数对象的原型对象，是个普通对象
+        //  特殊 Function 的原型对象 为函数对象，这个函数对象没有 prototype
+        console.log(Function.prototype);
+        console.log(Function.prototype.prototype); //  undefined
+
+        //  面试题(大厂)
+        //  Function 和 function 的区别是什么？
+        //  1：function 的构造函数 是Function 
+        //  2：function 的原型对象为 普通对象，Function 的原型对象为函数对象，并且这个函数对象没有 prototype
+    </script>
+</body>
+
+</html>

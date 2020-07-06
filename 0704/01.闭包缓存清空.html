@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  count 零引用，被回收
+        (function (window) {
+            var count = 0;
+            return function () {
+                console.log(count++);
+            }
+        })(window)
+
+        //  立即执行函数：闭包首选，可以解决内存泄漏问题，立即执行函数会使闭包【零引用】，所以会被垃圾回收机制回收
+        //  如果有变量引用了闭包内return返回的函数，那么在最后将变量赋值为 null ，将闭包清空
+    </script>
+</body>
+
+</html>

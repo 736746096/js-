@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  获取【页面】元素对象
+        //   --->   获取页面的高度，监听行为 ...
+        //  兼容性问题，IE 9 以下 为问题
+        var dom = document.documentElement;
+        console.log(dom);
+        
+        var body = document.body;
+        console.log(body);
+        
+        //  如果 document.documentElement 有返回值，那么赋值为 document.documentElement，没有返回值，则赋值为 document.body
+        //  做了兼容性处理
+        var node = document.documentElement || document.body;
+
+        //  注意： 页面高度不是视图窗口高度
+        console.log(node.offsetHeight);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap"></div>
+    <script>
+        getElement('div');
+        getElement('.wrap');
+        getElement('#box');
+
+
+        //  getElement()    作用：选择器的封装
+        //  参数：字符串类型，
+        function getElement(el) {
+            if (arguments.length > 1) {
+                throw new Error('params.length connot gt 1')
+            }
+            if (typeof el !== 'string') {
+                throw new Error('arguments of type can string')
+            }
+            if (arguments.length === 0) {
+                return null
+            }
+            console.log(el.charAt(0));
+
+            if (el.charAt(0) === '.') {     //  class 选择器
+                el = el.substr(1)
+                return document.getElementsByClassName(el);
+            } else if (el.charAt(0) === '#') {  //  id 选择器
+                el = el.substr(1)
+                return document.getElementById(el);
+            } else {    //  元素选择器
+                return document.getElementsByTagName(el);
+            }
+
+        }
+    </script>
+</body>
+
+</html>

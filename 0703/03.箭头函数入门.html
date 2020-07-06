@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  箭头函数没有 this 指向
+        //  箭头函数中 this 用的【上一层作用域】中的 this
+
+        //  这就是箭头函数
+        var obj = () => {
+            console.log(this);
+        }
+        var foo = {
+            obj: obj,
+            bar: bar
+        }
+        // foo.obj();
+
+        function bar() {
+            console.log(this); //  obj
+            var obj = {
+                foo: () => {
+                    //  没有 this，但可以使用，用的是上一层作用域中的this
+                    console.log(this);
+                }
+            }
+            obj.foo();
+            setTimeout(() => {
+                console.log(this);
+            }, 500)
+        }
+        foo.bar();
+
+        //  总结    箭头函数方法体中没有 this 
+        //  如何判断箭头函数内部的 this？
+        //      【只看】上一层作用域中 this 的指向，就是箭头函数中的 this 指向
+        //      
+    </script>
+</body>
+
+</html>

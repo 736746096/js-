@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var n = 123; //  栈  给数值变量分配空间，用来存 123
+        var str = '123'; //  栈  给 str变量 分配空间，用来存字符串
+
+        //  栈 给 o变量分配空间，存指针，堆 来存对象
+        //  栈 给对象下属性 name 分配空间，用来存字符串 'zz'
+        var o = {
+            name: 'zz'
+        }
+
+        //  给数组及其元素分配空间
+        //  栈 arr 存指针，栈 存元素，堆 创建空间存数组，提供指针
+        var arr = [1, 2, 3];
+
+        //  给函数(可调用的对象)    分配内存
+        //  栈 foo存指针，堆 存函数提供指针
+        //  函数调用，栈存返回值  (时间到，返回值没有变量引用，计算机销毁)
+        function foo(a) {
+            return a + 2;
+        }
+    </script>
+</body>
+
+</html>

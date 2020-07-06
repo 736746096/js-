@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Animal(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Animal.prototype.getName = function (){
+            return this.name
+        }
+        var zc = new Animal('zz', 22);
+        // console.log(zc.__proto__==Animal.prototype);
+        
+        function person(name,age){
+            return {
+                name:name,
+                age:age
+            }
+        }
+        person.prototype.getName = function(){
+            return this.name;
+        }
+        var yy = new person('yy',22);
+        console.log(yy);
+        console.log( yy.__proto__);
+        
+       
+    </script>
+</body>
+
+</html>

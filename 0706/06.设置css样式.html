@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .size {
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+
+        .radio {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap"></div>
+    <button class="btn">点击变圆</button>
+    <script>
+        var wrap = document.getElementsByClassName('wrap')[0];
+        var btn = document.getElementsByClassName('btn')[0];
+
+        //  className 返回类名字符串
+        console.log(wrap.className);
+        wrap.className = 'wrap size';
+
+        //  classList 返回类名列表 【类数组】
+        //  添加类名
+        // var res = [...wrap.classList];
+        // res.push('radio');
+        // res = res.join(' ');
+        // wrap.classList = res;
+        // console.log(wrap.classList);
+
+        // btn.onclick = function(){
+        //     var names = wrap.classList;
+        //     names = [...names];
+        //     names.push('radio')
+        //     names = names.join(' ');
+        //     wrap.classList = names;
+        //     console.log(names);
+        // }
+    </script>
+</body>
+
+</html>

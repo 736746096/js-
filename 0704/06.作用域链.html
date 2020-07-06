@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  作用域链 scope
+        //  执行环境 --->   变量的运行环境，作用域
+        //  执行期上下文 ---> 局部作用域
+        //  AO  局部作用域
+
+        //  执行期上下文与执行环境，scope 的关系是什么？
+        //  当函数执行时，会创建一个称为执行期上下文的内部对象。一个执行期上下文定义了一个函数执行时的环境，函数每次执行时对应的执行上下文都是独一无二的，所以多次调用一个函数会导致创建多个执行上下文，当函数执行完毕，执行上下文被销毁。
+
+        //  scope 值为 数组，即，当前环境所有使用的变量
+        //  0 自己的局部作用域
+        //  1 父级作用域
+        //  2 父级的父级作用域
+        //  n GO
+
+
+        var n='';
+        function foo(){
+            var b = 123;
+            function bar(){
+                var a = 11;
+            }
+        }
+
+        //  ao 作用域 作用域链 
+        foo();  //  预编译 --> AO{b:undefined;bar:function bar(){...}}
+        //  执行
+        //  ---> js 底层会创建一个执行环境[scope](也就是作用域),AO{this:触发的函数;}
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function foo() {
+            var a = 0;
+            return function () {
+                console.log(a++);
+            }
+        }
+        var res = foo();  //    foo 函数的 返回函数 被 res 引用了
+        res();
+        res();
+        //  闭包不用时，清空
+        res = null;
+        
+        foo()();    //  清空闭包，没有被任何变量和属性引用 return 函数
+    </script>
+</body>
+
+</html>
