@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>aaaaaaaaaaaaaaaaaaa</h1>
+    <h1>aaaaaaaaaaaaaaaaaaa</h1>
+    <h1>aaaaaaaaaaaaaaaaaaa</h1>
+    <h1>aaaaaaaaaaaaaaaaaaa</h1>
+    <h1>aaaaaaaaaaaaaaaaaaa</h1>
+
+    <script>
+        var h1s = document.getElementsByTagName('h1');
+
+        //  this指向
+        for (var i = 0; i < h1s.length; i++) {
+            (function () {
+                var flag = true;
+                h1s[i].onclick = function () {
+                    //  因为异步，这里程序比全局 for还慢，所以全局的 i = 5
+                    flag = !flag;
+                    flag ? (this.style.color = '') : (this.style.color = 'blue');
+                }
+            }())
+        }
+
+        //  闭包思维
+        // for (var i = 0; i < h1s.length; i++) {
+        //     (function (i) {
+        //         var flag = true;
+        //         h1s[i].onclick = function () {
+        //             flag = !flag;
+        //             flag ? (h1s[i].style.color = '') : (h1s[i].style.color = 'blue');
+        //         }
+        //     }(i))
+        // }
+
+        //  闭包思维
+        // for (var i = 0; i < h1s.length; i++) {
+        //     (function () {
+        //         var flag = true;
+        //         var x = i;
+        //         h1s[i].onclick = function () {
+        //             flag = !flag;
+        //             flag ? (h1s[x].style.color = '') : (h1s[x].style.color = 'blue');
+        //         }
+        //     }())
+        // }
+
+        //  给对象添加私有属性  (没有闭包)
+        // for (var i = 0; i < h1s.length; i++) {
+        //     //  给5个对象分别添加私有属性 flag并初始值 true
+        //     h1s[i].flag = true;
+        //     //  给 5个 h1 dom对象，分别添加私有属性 i，并赋不同的初始值
+        //     h1s[i].i = i;
+        //     h1s[i].onclick = function () {
+        //         this.flag = !this.flag;
+        //         //  使用 对象下私有属性 i
+        //         this.flag ? (h1s[this.i].style.color = '') : (h1s[this.i].style.color = 'blue');
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

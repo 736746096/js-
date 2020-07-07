@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button>显示</button>
+    <script>
+        var box = document.getElementsByClassName('box')[0];
+        var btn = document.getElementsByTagName('button')[0];
+
+        var count = 0;
+        var flag = true;
+        btn.onclick = function () {
+            //  方法一：
+            // if(box.className == 'box hidden'){
+            //     box.className = 'box active';
+            // }else if(box.className == 'box active'){
+            //     box.className = 'box hidden';
+            // }else{
+            //     box.className = 'box hidden';
+            // }
+
+            //  方法二：    点击次数
+            // if (++count % 2 == 1) {
+            //     box.className = 'box hidden';
+            // } else {
+            //     box.className = 'box active';
+            // }
+
+            //  方法三：
+            // if(flag){
+            //     box.className = 'box hidden';
+            //     flag = false;
+            // }else{
+            //     box.className = 'box ';
+            //     flag = true;
+            // }
+
+            //  方法四：    三目运算符
+            flag = !flag;
+            flag ? (box.className = 'box') : (box.className = 'box hidden');
+
+
+        }
+    </script>
+</body>
+
+</html>

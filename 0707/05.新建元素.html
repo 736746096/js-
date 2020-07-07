@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap"></div>
+    <button>点击添加内容</button>
+
+    <script>
+        //  如何通过 js方式新建标签
+        var node = document.createElement('p');
+        var wrap = document.querySelector('.wrap');
+
+        node.innerHTML = '这是p标签';
+
+        //  appendChild()   作用：给某个元素添加子元素：参数：元素对象
+        //  语法    父元素.appendChild(子元素);
+        //  --->   子元素 可以是选择器获取的，也可以是 createElement 创建的
+        wrap.appendChild(node)
+        console.log(wrap);
+        console.log(node);
+        
+    </script>
+</body>
+</html>
