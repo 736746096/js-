@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>选择母语</h1>
+    <form>
+        <div>
+            <input type="radio" id="english" name="language" value="English"> 英语
+        </div>
+        <div>
+            <input type="radio" id="chinese" name="language" value="Chinese" checked> 中文
+        </div>
+        <div>
+            <input type="radio" id="French" name="language" value="French"> 法语
+        </div>
+        <div>
+            <input type="radio" id="Latin" name="language" value="Latin"> 拉丁文
+        </div>
+    </form>
+
+    <script>
+        //  问题：如何通过js方式获取用户到底选择的是哪一个？
+        //  第一步：获取所有的 input
+        //  第二步：遍历 input类数组，查看 checked的值为true的
+        //  第三步：声明 checkRadio变量，接受 checked为 true的元素，并 .value获取用户选择的内容
+        
+        var ipts = document.querySelectorAll('input');
+
+        var checkRadio = null;
+        for (var i = 0; i < ipts.length; i++) {
+            if (ipts[i].checked) {
+                checkRadio = ipts[i];
+                console.log(ipts[i].value);
+                //  单选找到后，没必要再循环了
+                break
+            }
+        }
+        
+        var checkVal = checkRadio.value;
+        console.log(checkVal);
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">点我啊</button>
+
+    <script>
+
+        //  事件对象
+        //  1：事件对象的作用是什么
+        //  2：事件对象什么时候产生的
+        //  3：事件对象是什么时候产生的
+        //  ---> 谷歌浏览器 触发事件时候
+        //  ---> IE浏览器是 window.event 初始赋值 null
+
+
+        var btn = document.getElementsByClassName('btn')[0];
+        
+        //  事件对象作用：记录触发事件的事项，位置，哪一个案件等 ...
+        btn.onclick = function(event){
+            //  event 事件对象，触发事件的时候传入的
+            //  事件处理函数是异步程序，按需执行的
+            console.log(event);
+            console.log(event.type);    //  事件类型
+
+            //  获取触发事件的元素
+            var target = event.target;
+            console.log(target);
+        }
+
+        document.onkeyup = function(e){
+            console.log(e);
+            
+            //  获取 按下哪一个按键，每个按键都有一个编码
+            var code = e.keyCode;
+            console.log(e.key);
+            console.log(code);
+            if(code == 13){ //  
+                alert('按下回车，确认完毕')
+            }else if(code == 32){
+                alert('空格键')
+            }else if(code == 16){
+                alert('shift键')
+            }
+        }
+    </script>
+</body>
+</html>

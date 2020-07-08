@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <input type="text">
+        <input type="checkbox">
+        <button>提交</button>
+
+        <select name="" id="">
+            <option value="china">中国</option>
+            <option value="America">美国</option>
+            <option value="Korea" selected>韩国</option>
+        </select>
+
+    </form>
+
+    <script>
+        var formObj = document.querySelector('form');
+        console.log(formObj);
+        console.log(formObj[0]);
+        console.log(formObj[1].checked);
+        console.log(formObj[2]);
+
+        //  设置 或者修改 checkbox值
+        formObj[1].checked = true;
+
+        //  获取焦点
+        formObj[0].focus();
+
+        //  问题：  select option 用户选择的是哪一个？
+        var select = formObj[formObj.length - 1];
+
+        for (var i = 0; i < select.length; i++) {
+            if (select[i].selected) {
+                console.log(select[i]);
+                console.log(select[i].value);
+            }
+        }
+
+        //  封装方法
+        //  作用：返回 select option 选择的内容
+        //  参数：select 类数组
+        function getCont(sel) {
+            //  错误优先原则
+
+            //  验证参数类型
+            if (sel.length == 0) {
+                throw new Error('参数有误');
+            }
+            //  验证参数类型
+            if (sel.nodeType !== 1) {
+                throw new Error('参数有误');
+            }
+
+            for (var i = 0; i < sel.length; i++) {
+                if (sel[i].selected) {
+                    console.log(sel[i].innerText);
+                }
+            }
+        }
+        var sel = formObj[formObj.length - 1];
+        getCont(sel);
+    </script>
+</body>
+
+</html>

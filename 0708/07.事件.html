@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 第一种绑定事件的方式 -->
+    <h1 onclick="this.innerHTML='嗨起来'">艾瑞巴蒂</h1>
+
+    <h2 onclick="chou(this)">你瞅啥</h2>
+
+    <h2 class="changeText">biubiubiu</h2>
+
+    <h2 class="txt">蒹葭苍苍，白露为霜</h2>
+
+
+    <script>
+        //  事件：实现用户和浏览器的交互行为
+        //  事件分类：键盘事件，鼠标事件，滚动事件，浏览器窗口，表单事件 ...
+        //  交互：一问，一答，即一个行为，一个响应。用户做出行为，浏览器做出反应效果
+
+        //  核心知识点 (面试)：事件对象 事件机制，事件流，事件句柄，监听事件 ...
+
+        //  window.onload   当页面刚刚启动时，做初始化操作
+        window.onload=function(){
+            //  事件处理函数    在这里完成页面初始化渲染
+            alert('Hello World,艾瑞巴蒂');
+        }
+
+        function chou(el) {
+            el.innerHTML = '瞅你咋地'
+        }
+
+        var txt = document.querySelector('.changeText');
+        //  onclick 点击事件
+        //  蒹葭苍苍，白露为霜，所谓伊人，在水一方
+        txt.onclick=function(){
+            //  事件处理函数：处理用户行为，浏览器对行为做出响应
+            this.innerHTML='biu你吗个头';
+        }
+
+        var text = document.querySelector('.txt');
+        //  IE 不支持
+        text.addEventListener('click',function(){
+            this.innerHTML='所谓伊人，在水一方'
+        })
+    </script>
+</body>
+
+</html>

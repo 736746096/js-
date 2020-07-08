@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap" data-aa="我去恶趣味">我是内容</div>
+
+    <script>
+        var wrap = document.getElementsByClassName('wrap')[0];
+        var div = document.querySelector('.wrap');
+        console.log(wrap.nodeType); //  1   元素节点
+        console.log(div.nodeType);
+        
+        var txt = document.createTextNode('枪位艾什的期望去');
+        console.log(txt.nodeType);  //  3   文本节点
+        
+        //  getAttribute()  返回某个元素的属性的值
+        //  data-xx 自定义属性
+        console.log(div.getAttribute('data-aa'));
+        
+        
+        //  nodeType    作用返回 dom树上节点类型
+        //  1   元素节点
+        //  2   属性节点
+        //  3   文本节点
+
+
+        
+    </script>
+</body>
+</html>

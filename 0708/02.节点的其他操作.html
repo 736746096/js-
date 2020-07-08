@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <span></span>
+    </div>
+
+    <script>
+        var wrap = document.querySelector('.wrap');
+        var span = document.querySelector('span');
+        var newEl = document.createElement('div');
+        
+        //  parent.replaceChild(newEl,odlEl)   子元素的替换
+        //  newEl   表示新元素
+        //  oldEl   表示旧元素  被替换元素
+        //  parent  表示父元素
+        wrap.replaceChild(newEl,span);
+
+        var cloneEl = wrap.cloneNode(true);
+        console.log(cloneEl);
+        
+
+    </script>
+</body>
+</html>

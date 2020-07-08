@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 400px;
+            height: 300px;
+            background-color: palevioletred;
+        }
+        .active#wrap{
+            width: 100px;
+            height: 100px;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+    <input type="text">
+    <script>
+        //  监听鼠标在整个页面中移动范围
+        // document.onmousemove = function(){
+        //     console.log('它动了');
+        // }
+        // //  监听某个元素 鼠标移动的情况
+        // wrap.onmousemove = function(){
+        //     console.log('又动了');   
+        // }
+        //  问题：document 和 wrap 都监听了
+
+        // wrap.onmouseenter = function(){
+        //     console.log('它进来了');
+        //     wrap.className = 'active'
+        // }
+        // wrap.onmouseleave = function(){
+        //     console.log('出去了');
+        //     wrap.className = ''
+        // }
+
+        // wrap.onmousedown = function(){
+        //     console.log('被按了');
+        // }
+
+        var ipt = document.querySelector('input');
+
+        //  键盘事件
+        // document.onkeydown = function(){
+        //     console.log('键盘被摁了')
+        // }
+        
+        //  推荐这种方式
+        ipt.onkeyup = function(){
+            console.log('松开键盘');
+        }
+
+        
+    </script>
+</body>
+</html>
