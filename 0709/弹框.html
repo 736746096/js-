@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        .wrap{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            display: none;   
+        }
+        .box{
+            width: 500px;
+            height: 300px;
+            margin: 200px auto;
+            background-color: #fff;
+            position: relative;
+        }
+        .close{
+            position: absolute;
+            right: 10px;
+            top: 0;
+            font-size: 20px;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点击</button>
+    <div class="wrap">
+        <div class="box">
+            <span class="close">x</span>
+        </div>
+    </div>
+    <script>
+        var btn = document.querySelector('#btn');
+        var wrap = document.querySelector('.wrap');
+        var close = document.querySelector('.close');
+
+        btn.addEventListener('click',function(){
+            wrap.className = 'wrap show'
+        });
+        close.addEventListener('click',function(){
+            wrap.className='wrap';
+        })
+    </script>
+</body>
+</html>

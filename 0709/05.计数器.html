@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="reduce">-</button>
+    <span class="num">0</span>
+    <button id="add">+</button>
+
+    <script>
+        var add = document.querySelector('#add');
+        var reduce = document.querySelector('#reduce');
+        var span = document.querySelector('.num')
+
+        var count = 0;
+        span.innerHTML = count; //  js 方式实现初始化
+
+        add.addEventListener('click',function(){
+            ++count;
+            if(count >3){
+                count = 0
+            }
+            span.innerHTML = count;
+            
+        })
+        reduce.addEventListener('click',function(){
+            --count;
+            //  先验证数据
+            if(count <0){
+                count = 0
+            }
+            //  将 count 添加到 span中
+            span.innerHTML = count;
+        })
+    </script>
+</body>
+</html>

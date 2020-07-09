@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <img src="img/start1.png" alt="">
+        <img src="img/start1.png" alt="">
+        <img src="img/start1.png" alt="">
+        <img src="img/start1.png" alt="">
+        <img src="img/start1.png" alt="">
+    </div>
+    <h1 class="cont">我是内容</h1>
+    <script>
+        var img = document.querySelectorAll('img');
+        var cont = document.querySelector('.cont');
+
+        for (var i = 0; i < img.length; i++) {
+            (function (i) {
+                img[i].addEventListener('click', function () {
+
+                    for (var j = 0; j < img.length; j++) {
+                        img[j].src = 'img/start1.png';
+                    }
+
+                    for (var j = 0; j <= i; j++) {
+                        img[j].src = 'img/start2.png';
+                    }
+
+                    if (i == 0) {
+                        cont.innerHTML = '一星差评';
+                    } else if (i == 1) {
+                        cont.innerHTML = '二星不行';
+                    } else if (i == 2) {
+                        cont.innerHTML = '三星就这';
+                    } else if (i == 3) {
+                        cont.innerHTML = '四星还行';
+                    } else {
+                        cont.innerHTML = '五星好评';
+                    }
+                });
+            }(i));
+        }
+    </script>
+</body>
+
+</html>
