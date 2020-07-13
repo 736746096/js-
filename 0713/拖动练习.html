@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+        }
+
+        .content {
+            width: 300px;
+            height: 200px;
+            background-color: seashell;
+
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-150px, -100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="content">
+        </div>
+    </div>
+
+    <script>
+        var con = document.querySelector('.content');
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        con.addEventListener('mousedown', function () {
+            var x = event.offsetX;
+            var y = event.offsetY;
+
+            document.onmousemove = function (e) {
+                con.style.left = e.clientX - x + 150 + 'px';
+                con.style.top = e.clientY - y + 100 + 'px';
+                console.log(con.clientWidth);
+                console.log(con.offsetTop);
+                if (con.offsetLeft < 150) {
+                    con.style.left = '150px';
+                }
+                if (con.offsetTop < 100) {
+                    con.style.top = '100px';
+                }
+                if (con.offsetLeft + con.clientWidth-150 > width) {
+                    con.style.left = width - 150 + 'px';
+                }
+                if (con.offsetTop + con.clientHeight-100 > height) {
+                    con.style.top = height - 100 + 'px';
+                }
+            }
+        })
+        con.addEventListener('mouseup', function () {
+            document.onmousemove = null;
+        })
+    </script>
+</body>
+
+</html>

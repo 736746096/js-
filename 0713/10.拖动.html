@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        var box = document.querySelector('.box');
+
+        // box.onclick = function () {
+        //     document.onmouseover = function (e) {
+        //         console.log('点击了');
+        //         //  通过获取鼠标移动距离，将距离赋值给元素的 left top属性，实现，元素的移动效果
+        //         box.style.left = e.clientX - 50 + 'px';
+        //         box.style.top = e.clientY - 50 + 'px';
+        //         //  bug 1：默认body 8px 导致鼠标不在元素上
+        //         //  bug 2: 在轴上
+        //     }
+        // }
+
+
+        //  需求：在哪里点击就在哪里拖动
+        box.onclick = function (event) {
+            var x = event.offsetX;
+            var y = event.offsetY;
+            document.onmouseover = function (e) {
+                console.log('点击了');
+
+                box.style.left = e.clientX - x + 'px';
+                box.style.top = e.clientY - y + 'px';
+
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <input type="checkbox" class="all"> <span class="allMsg">全选</span>
+            <input type="checkbox" class="reverse"> 反选
+        </div>
+        <div><input type="checkbox" class="check"><span>选项01</span></div>
+        <div><input type="checkbox" class="check"><span>选项02</span></div>
+        <div><input type="checkbox" class="check"><span>选项03</span></div>
+        <div><input type="checkbox" class="check"><span>选项04</span></div>
+        <div><input type="checkbox" class="check"><span>选项05</span></div>
+    </form>
+
+    <script>
+        var ipts = document.querySelectorAll('.check');
+        var all = document.querySelector('.all');
+        var allMsg = document.querySelector('.allMsg');
+        var reverse = document.querySelector('.reverse');
+
+        ipts = Array.from(ipts);
+        ipts.forEach(function (item) {
+            item.addEventListener('change', function () {
+                var span = item.nextElementSibling;
+                if (item.checked) {
+                    span.style.color = 'blue';
+                } else {
+                    span.style.color = '';
+                }
+                isAllChecked();
+            })
+        })
+
+        all.addEventListener('change', function () {
+            if (all.checked) {
+                ipts.forEach(function (item) {
+                    item.nextElementSibling.style.color = 'blue';
+                    item.checked = true;
+                    allMsg.innerHTML = '全不选';
+                })
+            } else {
+                ipts.forEach(function (item) {
+                    item.nextElementSibling.style.color = '';
+                    item.checked = false;
+                    allMsg.innerHTML = '全选';
+                })
+            }
+        })
+
+        reverse.addEventListener('change',function(){
+            isReverse();
+            isAllChecked();
+        })
+        
+        function isReverse(){
+            ipts.forEach(function(item){
+                item.checked = !item.checked;
+                if(item.checked){
+                    item.nextElementSibling.style.color= 'blue';
+                }else{
+                    item.nextElementSibling.style.color= '';
+                }
+            })
+        }
+
+        function isAllChecked(){
+            for(var i =0;i<ipts.length;i++){
+                if(ipts[i].checked == false){
+                    all.checked = false;
+                    allMsg.innerHTML = '全选';
+                    break;
+                }else{
+                    all.checked = true;
+                    allMsg.innerHTML = '全不选';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

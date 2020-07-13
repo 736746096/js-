@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 70px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 70px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">开始点名</div>
+    <button id="start">开始</button>
+    <button id="stop">暂停</button>
+
+    <script>
+        var names = ['丁', '季', '唐', '陈', '李', '周', '刘', '韩', '吕', '尧', '安', '苟', '王', '顾', '刘yc', '相'];
+        var box = document.querySelector('.box');
+        var start = document.querySelector('#start');
+        var stop = document.querySelector('#stop');
+        var timer;
+        var flag = true; //  开关  防抖
+        start.onclick = function () {
+            //  用户多次点击开始，以第一次为主
+            if (flag) {
+                timer = setInterval(function () {
+                    var random = Math.floor(Math.random() * (names.length));
+                    box.innerHTML = names[random];
+                }, 16.7);
+            }
+            console.log(timer);
+            flag = false;
+        }
+        stop.onclick = function () {
+            clearInterval(timer);
+            console.log(timer);
+            flag = true;
+        }
+
+
+        //  bug 点击多次不能清除 timer
+
+        //  网络的性能优化
+        //  防抖 节流
+        //  多次点击按钮，以第一次为主      ---> timer 触底
+        //  多次点击按钮，以最后一次为主    ---> 购物车计数器
+    </script>
+
+</body>
+
+</html>

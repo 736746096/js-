@@ -127,26 +127,26 @@
         var index = 0;
 
 
-        for (var i = 0; i < control.length; i++) {
-            (function (i) {
-                control[i].addEventListener('click', function () {
-                    index = i;
-                    for (var j = 0; j < control.length; j++) {
-                        control[j].className = 'control-item';
-                        view[j].className = "";
-                    }
-                    control[i].className = 'control-item active';
-                    view[i].className = "show";
-                });
-            }(i));
-        }
+        view = Array.from(view);
+        control = Array.from(control);
+        control.forEach(function (item, index) {
+            index = index;
+            item.addEventListener('click', function () {
+                control.forEach(function (item, index) {
+                    item.className = 'control-item';
+                    view[index].className = '';
+                })
+                item.className = 'control-item active';
+                view[index].className = 'show';
+            })
+        })
 
         pre.addEventListener('click', function () {
             index--;
-            for (var i = 0; i < view.length; i++) {
-                view[i].className = '';
-                control[i].className = 'control-item'
-            }
+            view.forEach(function (item, index) {
+                item.className = '';
+                control[index].className = 'control-item';
+            })
             if (index < 0) {
                 index = 2;
             }
@@ -155,13 +155,11 @@
         })
 
         next.addEventListener('click', function () {
-            //  小圆点切换到下一个
-            //  图片也要切换
             index++;
-            for (var i = 0; i < view.length; i++) {
-                view[i].className = '';
-                control[i].className = 'control-item'
-            }
+            view.forEach(function (item, index) {
+                item.className = '';
+                control[index].className = 'control-item';
+            })
             if (index > 2) {
                 index = 0;
             }
