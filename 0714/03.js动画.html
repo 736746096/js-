@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .change{
+            opacity: 0.3;
+            transition: all 0.5s;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        var box = document.querySelector('.box');
+        
+        //  方式二
+        //  1：知道哪一个 css属性值变化是需要动画
+        //  2：知道动画执行时间是多少？ setInterval 执行次数
+        //  3：css值 每次递增或者递减多少？ 单次执行的时间是多少，找到出口
+        box.addEventListener('mouseover',function(){
+            var opacity = 1;
+            var timer = setInterval(function(){
+                opacity -= 0.1;
+                box.style.opacity = opacity;
+                if(opacity <=0.3){
+                    box.style.opacity = 0.3;
+                    clearInterval(timer)
+                }
+            },100)
+        })
+
+        //  方式三：css 完成动画，通过添加类名方式实现
+    </script>
+</body>
+</html>

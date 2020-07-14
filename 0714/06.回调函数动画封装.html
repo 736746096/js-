@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+
+        function getStyle(el, str) {
+            var res;
+            if (el.currentStyle) {
+                res = el.currentStyle;
+            } else {
+                res = getComputedStyle(el, null)[str];
+            }
+            return res;
+        }
+
+        //  宽度从 100变为 200后，高度从 100到300
+        ani(box, 'width', 200, 0.5, function () {
+            ani(box, 'height', 300, 1, function () {})
+        });
+
+        function ani(el, str, end, time, callback) {
+            var start = getStyle(el, str);
+            start = parseFloat(start);
+            console.log(start);
+
+            var s = end - start;
+            time = time * 1000;
+            var timer = setInterval(function () {
+                start += s / (time / 16.7);
+                if (s > 0) {
+                    if (start >= end) {
+                        clearInterval(timer);
+                        callback();
+                    }
+                } else {
+                    if (start <= end) {
+                        clearInterval(timer);
+                        callback();
+                    }
+                }
+
+                if (str == 'opacity' || str == 'zIndex') {
+                    el.style[str] = start;
+                } else {
+                    el.style[str] = start + 'px';
+                }
+            }, 16.7);
+        }
+    </script>
+</body>
+
+</html>

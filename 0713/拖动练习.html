@@ -64,11 +64,17 @@
                 if (con.offsetTop < 100) {
                     con.style.top = '100px';
                 }
-                if (con.offsetLeft + con.clientWidth-150 > width) {
+                if (con.offsetLeft + con.clientWidth - 150 > width) {
                     con.style.left = width - 150 + 'px';
                 }
-                if (con.offsetTop + con.clientHeight-100 > height) {
+                if (con.offsetTop + con.clientHeight - 100 > height) {
                     con.style.top = height - 100 + 'px';
+                }
+                if (e.clientX > width ||
+                    e.clientX < 0 ||
+                    e.clientY > height ||
+                    e.clientY < 0) {
+                    document.onmousemove = null;
                 }
             }
         })

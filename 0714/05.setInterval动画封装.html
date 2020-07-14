@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            opacity: 0.8;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        var box = document.querySelector('.box');
+
+        function getStyle(el, str) {
+            var res;
+            if (el.currentStyle) {
+                res = el.currentStyle;
+            } else {
+                res = getComputedStyle(el, null)[str];
+            }
+            return res;
+        }
+
+        ani(box, 'opacity', 0.3, 0.5);
+
+        function ani(el, str, end, time) {
+            var start = getStyle(el, str);
+            start = parseInt(start);
+            console.log(start);
+            
+
+            var s = end - start; //  求过渡值
+            
+            time = time * 1000;
+            var timer = setInterval(function () {
+                //  time/16.7 ---> fun 执行的次数
+                //  s/(time/16.70)  每 16.7ms 的值变化量 (平均值)
+                start += s / (time / 16.7);
+                
+                //  s 不同出口，条件不同
+                if (s > 0) {
+                    if (start >= end) {
+                        //  出口前，也需要 el 的 str 属性赋值
+                        //  ---> 区分，哪些 str 需要 px ，哪些不需要
+                        str == 'opacity' || str == 'zIndex' ?
+                            (el.style[str] = end) :
+                            (el.style[str] = end + 'px');
+                        clearInterval(timer);
+                    }
+                } else {
+                    if (start <= end) {
+                        str == 'opacity' || str == 'zIndex' ?
+                            (el.style[str] = end) :
+                            (el.style[str] = end + 'px')
+                        clearInterval(timer);
+                    }
+                }
+
+
+                //  处理【没有单位】 css 属性
+                if (str == 'opacity' || str == 'zIndex') {
+                    el.style[str] = start;
+                    //  找出口
+                    if (start >= end) {
+                        el.style[str] = end;
+                        clearInterval(timer);
+                    }
+                } else {
+                    el.style[str] = start + 'px';
+                    //  找出口
+                    if (start >= end) {
+                        el.style[str] = end + 'px';
+                        clearInterval(timer);
+                    }
+                }
+            }, 16.7) //  浏览器刷新时间是 16.7ms
+        }
+
+        //  一步一步实现的，增加条件的问题如下：
+        //  实现 s > 0，动画赋值，有单位
+        //  赋值有条件，有的有单位，有的没单位
+        //  出口条件也变化了， s > 0 可能 s < 0 ，影响到 出口赋值条件
+    </script>
+</body>
+
+</html>

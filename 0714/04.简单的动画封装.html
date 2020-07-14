@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+    <script>
+        //  $animate 实现动画
+
+
+        var box = document.querySelector('.box');
+        // $animate(box, {"opacity":" 0.3"}, 0.5);
+
+        //  el 元素
+        //  styleus css样式动画
+        //  time 时间
+        function $animate(el, styleus, time) {
+            for (var k in styleus) {
+                //  通过 js 获取元素变化前的值
+               var a =getComputedStyle(el,null)[k];
+               console.log(a);
+               
+               //   css 变化后的值
+               var b = styleus[k];
+               el.style[k] = b;
+               
+               //   a ---> b 变化的【过程】
+               el.style.transition = 'all '+time;
+
+            }
+        }
+        box.onclick = function(){
+            $animate(box,{opacity:0.5},'0.5s');
+        }
+    </script>
+</body>
+
+</html>

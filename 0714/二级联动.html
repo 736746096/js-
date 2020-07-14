@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: auto;
+            display: flex;
+            padding: 20px;
+        }
+
+        #province {
+            padding: 2px;
+            width: 150px;
+        }
+
+        #city {
+            padding: 2px;
+            width: 150px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <select name="" id="province">
+
+        </select>
+        <select name="" id="city">
+
+        </select>
+    </form>
+
+    <script src="area.js"></script>
+    <script>
+        var province = document.querySelector('#province');
+        var city = document.querySelector('#city');
+        var form = document.querySelector('form');
+
+
+        for (var i in area) {
+            var pro = document.createElement('option');
+            pro.innerHTML = i;
+            pro.className = 'province';
+            province.appendChild(pro);
+            addCity(i)
+        }
+        province.addEventListener('change', function () {
+            city.innerHTML = '';
+            for (var i in area) {
+                addCity(i)
+            }
+        })
+        
+        function addCity(i) {
+            if (province.value == i) {
+                var cc = area[i][0];
+                for (var j in cc) {
+                    var cityy = document.createElement('option');
+                    cityy.innerHTML = j;
+                    cityy.className = 'city';
+                    city.appendChild(cityy);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
