@@ -27,6 +27,11 @@
             width: 150px;
             margin-left: 20px;
         }
+        #area{
+            padding: 2px;
+            width: 150px;
+            margin-left: 20px;
+        }
     </style>
 </head>
 
@@ -38,6 +43,9 @@
         <select name="" id="city">
 
         </select>
+        <select name="" id="area">
+
+        </select>
     </form>
 
     <script src="area.js"></script>
@@ -45,6 +53,7 @@
         var province = document.querySelector('#province');
         var city = document.querySelector('#city');
         var form = document.querySelector('form');
+        var Area = document.querySelector('#area');
 
 
         for (var i in area) {
@@ -72,6 +81,9 @@
                 }
             }
         }
+
+        console.log();
+        
     </script>
 </body>
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box a b"></div>
+
+    <script>
+        /*
+            hasClass() 作用 判断某一个元素中是否含有某一个类名
+            option(element|string)
+            return true 存在 false 不存在
+        */
+        var box = document.querySelector('.box');
+
+        console.log(hasClass(box, 'wrap'));
+
+        function hasClass(el, str) {
+            var classes = el.className;
+            classes = classes.split(/\s+/); //  /\s+/   匹配多个空格  \s 空格字符   + 无限次匹配
+            return classes.indexOf(str) != -1 ? true : false;
+        }
+    </script>
+</body>
+
+</html>

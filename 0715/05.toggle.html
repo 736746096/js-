@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>toggle</button>
+    <!-- 
+        1：box 的显示隐藏不确定
+        2：显示隐藏 一定是 display控制的
+     -->
+    <div class="box"></div>
+
+
+    <script src="todos.js"></script>
+    <script>
+        var btn = document.querySelector('button');
+        var box = document.querySelector('.box');
+
+        btn.onclick = function () {
+            toggle(box); //  如果 box显示，那么隐藏，反之显示
+            
+        }
+
+        function toggle(el) {
+            var res = getComputedStyle(el, null)['display'];
+            if (res == 'none') {
+                el.style.display = 'block';
+                show(el);
+
+            } else {
+                el.style.display = 'none';
+                hide(el);
+            }
+            return el
+        }
+    </script>
+</body>
+
+</html>
