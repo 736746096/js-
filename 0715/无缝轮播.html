@@ -68,10 +68,6 @@
             right: 0;
         }
 
-        .show {
-            display: block !important;
-        }
-
         .active {
             background-color: aqua;
         }
@@ -81,7 +77,7 @@
 <body>
     <div class="box">
         <div class="wrap">
-            <img src="img/1.jpg" alt="" class="show">
+            <img src="img/1.jpg" alt="">
             <img src="img/2.jpg" alt="">
             <img src="img/3.jpg" alt="">
             <img src="img/1.jpg" alt="">
@@ -102,7 +98,6 @@
     <script>
         var box = document.querySelector('.box');
         var wrap = document.querySelector('.wrap');
-        var imgs = document.querySelectorAll('.wrap>img');
         var pre = document.querySelector('#pre');
         var next = document.querySelector('#next');
         var control = document.querySelectorAll('.control-item')
@@ -111,75 +106,53 @@
 
         control = Array.from(control);
 
+
         pre.addEventListener('click', function () {
             index--;
+            // if (index == 0) {
+            //     show(index)
+            // }
             if (index < 0) {
-                index = 3;
-            }
-            if (index == 3) {
-                wrap.style.left = -index * w + 'px';
+                index = 3
             }
             console.log(index);
-            control.forEach(function (item, index) {
-                item.className = 'control-item';
-            })
-            wrap.style.left = -w * index + 'px';
-            wrap.style.transition = 'all 0.5s';
-            control[index].className = 'control-item active';
+            show(index)
+
         })
         next.addEventListener('click', function () {
-            index++;
+                index++;
+            if (index == 3) {
+
+                show(index)
+
+            }
             if (index > 3) {
                 index = 0;
             }
-            if (index == 3) {
-                wrap.style.left = -index * w + 'px';
-            }
             console.log(index);
-
-            control.forEach(function (item, index) {
-                item.className = 'control-item';
-            })
-            wrap.style.left = -w * index + 'px';
-            wrap.style.transition = 'all 0.5s';
-            control[index].className = 'control-item active';
+            show(index)
         })
         control.forEach(function (item, index) {
             index = index;
             item.addEventListener('click', function () {
-                control.forEach(function (item, index) {
-                    item.className = 'control-item';
-                });
-                wrap.style.left = -w * index + 'px';
-                wrap.style.transition = 'all 0.5s';
-                control[index].className = 'control-item active';
+                show(index)
             });
         })
 
         function autoPlay() {
             index++;
             if (index < 3) {
-                control.forEach(function (item, index) {
-                    item.className = 'control-item';
-                });
-                wrap.style.left = -w * index + 'px';
-                wrap.style.transition = 'all 0.5s';
-                control[index].className = 'control-item active';
+                show()
             } else if (index > 3) {
                 index = 0;
-                control.forEach(function (item, index) {
-                    item.className = 'control-item';
-                });
-                wrap.style.left = -w * index + 'px';
-                wrap.style.transition = 'all 0.5s';
-                control[index].className = 'control-item active';
+                show(index)
             }
         }
         // setInterval(function () {
         //     autoPlay();
         // }, 500);
 
-        function animate() {
+        function show(index) {
             control.forEach(function (item, index) {
                 item.className = 'control-item';
             })

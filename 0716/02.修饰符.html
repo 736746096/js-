@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '美国人，日本人，韩国人';
+        var reg = /['人']/;     //  只要匹配到一个满足规则的就不会匹配了
+        var reg1 = /['人']/g;   //  匹配所有满足规则的
+        var res = str.replace(reg,'人');
+
+        var str1 = 'laksjqwjoiqwnknckjaspdoqwnklksad';
+        var str2 = 'sadwwdaasdasdwsda\ndiasdfsoioinqwona\naksjhdwihdsdasd'
+        //  i 忽略大小写
+        //  g 全局匹配 在整个字符串中匹配
+
+        var reg2 = /[GotYouBaby]/gi;    //  
+        console.log(str2);
+        
+        console.log(str1.match(reg2));
+        console.log(str2.match(reg2));
+    </script>
+</body>
+</html>

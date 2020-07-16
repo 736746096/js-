@@ -29,7 +29,7 @@
         //  初始化市级
         var cityData = data[pro[0].value][0];
         console.log(cityData);
-        
+
         (function () {
             creatOption(city, cityData);
         }());
@@ -70,19 +70,16 @@
             //  选择市
             var areaIndex = city[city.selectedIndex].value;
             //  根据市获取 区数据
-            var areaData = cityData[areaIndex].value;
+            var areaData = cityData[areaIndex];
+            console.log(areaData);
+
             //  根据 区数据 更新 区 select area
             //  初始化清空区级
             Area.innerHTML = '';
 
             //  更新区
             for (var i = 0; i < areaData.length; i++) {
-                for (var x in areaData[i]) {
-                    var option = document.createElement('option');
-                    option.innerHTML = x;
-                    option.value = x;
-                    Area.appendChild(option);
-                }
+                creatOption(Area, areaData[i]);
             }
 
         });

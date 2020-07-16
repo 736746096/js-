@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /[0-9]/g;
+        var reg1 = /\d/g; //  匹配 0-9 字符
+        var reg2 = /[0-9a-zA-Z]/g //  数字字母下划线
+        var reg3 = /[\w]/g; //  匹配数字字母下划线
+
+        var reg4 = /^\d\w*[a-zA-Z]{1,}$/g; // 仅能匹配 字符长度为 2，开始是数字，结尾是字母的
+        var str = '3aiwuhjiuw378t1gju27tgyyy78thu837ghj';
+        console.log(str.match(reg4));
+
+        //  匹配 必须以 1 开头，结尾无所谓，长度不限
+        var reg = /^[1][^\s]{1,}/g;
+        var str = '1qwesdwq';
+        var str1 = 'dwaoji2a';
+        console.log(str.match(reg));
+        console.log(str1.match(reg));
+
+
+        //  手机号
+        var reg = /^1\d{10}$/g; //  规定开头1，结尾数字,第一个字符长度为1，第二个字符长度为10
+        var phone = '13584527729';
+        console.log(phone.match(reg));
+
+
+        //  边界类
+        var str = 'Got You Baby';
+        var reg = /\bBaby\b/g;
+        console.log(str.match(reg));
+    </script>
+</body>
+
+</html>

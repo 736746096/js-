@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var date = new Date();
+        console.log(date);
+        //  2020-07-16 16:55:16
+
+
+
+        function formatDate() {
+            //  1：确定数据结构是什么？
+            var str = 'YYY-MM-DD HH:FF:SS';
+            //  2：获取具体的年月日时分秒，替换结构字符串
+            var time = {
+                'Y+': date.getFullYear(),
+                'M+': date.getMonth() + 1,
+                'D+': date.getDate(),
+                'H+': date.getHours(),
+                'F+': date.getMinutes(),
+                'S+': date.getSeconds()
+            }
+            //  把 str 字符 替换为时间 YYYY -- 2020 --
+            //  如何获取正则匹配的 YYYY ---> RegExp.$1
+            //  完成替换    replace(RegExp.$1,time[x])
+            for (var x in time) {
+                var reg = new RegExp(`(${x})`);
+                console.log(reg);
+                if (reg.test(str)) {
+                    //  把匹配到内容替换为 时间
+                    var newVal = time[x] >= 10 ? time[x] : '0' + time[x];
+                    str = str.replace(RegExp.$1, newVal);
+                }
+            }
+            return str
+        }
+        var res = formatDate(date);
+        console.log(res); //  2020-07-16 16:57:45
+
+
+
+        var timer = new Date();
+        var res = timer.prototype   
+    </script>
+
+  
+</body>
+
+</html>

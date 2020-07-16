@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var reg = /[^0-9]/g;    //  除了 0-9 其他都匹配
+        var str = 'awd 4w64daw8w4dw8qwdwqe123=-;';
+        console.log(str.match(reg));
+
+        var reg2 = /[^a-zA-Z]/g;
+        var reg3 = /[^0-9a-zA-Z_]/g;
+        var str2 = '问我啊哦卡技能是哦期间，请我i阿胶123 qwe_12a5sd6a';
+        console.log(str2.match(reg3));
+        
+        
+    </script>
+</body>
+</html>
