@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'a regular exprution';
+
+        //  regular of e
+        //  断言：匹配字符的条件判断，不会匹配具体字符
+        var reg = /e(?=gular)/;  //  匹配的 e 条件是：e前瞻的字符是否等于 gular
+        console.log(reg.exec(str));
+        console.log(str.replace(reg,'='));
+
+        // var reg = /\w(?>=3)/;
+        var reg1 = /\d(?=\d{5})/;
+
+        var str1 = 's3s3';
+        var str2 = 'd1111111';
+        // console.log(reg.exec(str1));
+        console.log(reg1.exec(str2));
+        
+        
+        //  正则表达式匹配方式 从左往右，右边为前，左边为后
+        //  前瞻(正向匹配)：匹配字符的时候，还需要往右看看是否满足某个条件
+        //  负向匹配：匹配字符时，往左看
+        
+
+        //  匹配 re 但不匹配开头的 re，匹配单词内部的 re
+        var str4 = 'regex represents regular expressio';
+        var reg = /(?<=\w)re/g;
+        console.log(str4.replace(reg,'=='));
+        
+
+
+
+        
+    </script>
+</body>
+</html>
